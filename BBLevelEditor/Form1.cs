@@ -168,7 +168,25 @@ namespace BBLevelEditor
 
         private void loadButton_Click(object sender, EventArgs e)
         {
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
+            string parent1 = Directory.GetParent(currentDirectory).FullName;
+            string parent2 = Directory.GetParent(parent1).FullName;
+            string parent3 = Directory.GetParent(parent2).FullName;
+
+            string fullPath = Path.Combine(parent3, "levels", "level" + levelNumberInput.Value);
+            XmlDocument loaded = new XmlDocument();
+            if (File.Exists(fullPath) == true)
+            {
+                loaded.Load(fullPath);
+            }
+
+            XmlNodeList bricks = loaded.SelectNodes("/brick");
+            foreach (XmlNode brick in bricks)
+            {
+
+            }
         }
     }
+
 }

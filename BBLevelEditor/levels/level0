@@ -1,1 +1,17 @@
-<level />
+<level>
+  <textures>
+    <texture>
+    </texture>
+  </textures>
+  <brick>
+    <rectangle>
+      <x>232</x>
+      <y>92</y>
+      <width>50</width>
+      <hight>25</hight>
+    </rectangle>
+    <hp>1</hp>
+    <brickType>0</brickType>
+    <vines>False</vines>
+  </brick>
+</level>
