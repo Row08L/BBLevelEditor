@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Copy and paste buttons above into left panel
+- Text is HP
+- Fore colour is green for vines
+- Backround image is saved texture for brick
+- Panel backround image with be game backround image
+- Level will be saved to the folder on the right
+- Be confident in your level before you start a new one, there is currently no way to edit xml levels(in prog)
+
+</value>
+  </data>
 </root>
