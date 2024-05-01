@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.Example = new System.Windows.Forms.ImageList(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,9 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.loadButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.Example = new System.Windows.Forms.ImageList(this.components);
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.levelNumberInput)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +57,51 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1366, 768);
             this.panel1.TabIndex = 0;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Goldenrod;
+            this.button6.BackgroundImage = global::BBLevelEditor.Properties.Resources.Screenshot_2022_06_05_000630;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.ImageKey = "(none)";
+            this.button6.ImageList = this.Example;
+            this.button6.Location = new System.Drawing.Point(853, 325);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button6.Size = new System.Drawing.Size(183, 163);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "2";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // Example
+            // 
+            this.Example.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Example.ImageStream")));
+            this.Example.TransparentColor = System.Drawing.Color.Transparent;
+            this.Example.Images.SetKeyName(0, "Screenshot 2022-06-05 000630.png");
+            this.Example.Images.SetKeyName(1, "Screenshot 2022-10-28 110318.png");
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Goldenrod;
+            this.button5.BackgroundImage = global::BBLevelEditor.Properties.Resources.Screenshot_2022_06_05_000630;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.Green;
+            this.button5.ImageKey = "(none)";
+            this.button5.ImageList = this.Example;
+            this.button5.Location = new System.Drawing.Point(646, 141);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button5.Size = new System.Drawing.Size(183, 163);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "2";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -88,10 +133,10 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1457, 259);
+            this.label1.Location = new System.Drawing.Point(1400, 259);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 349);
+            this.label1.Size = new System.Drawing.Size(339, 358);
             this.label1.TabIndex = 4;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -164,51 +209,6 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "TEST (DO NOT USE)";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // Example
-            // 
-            this.Example.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Example.ImageStream")));
-            this.Example.TransparentColor = System.Drawing.Color.Transparent;
-            this.Example.Images.SetKeyName(0, "Screenshot 2022-06-05 000630.png");
-            this.Example.Images.SetKeyName(1, "Screenshot 2022-10-28 110318.png");
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Goldenrod;
-            this.button5.BackgroundImage = global::BBLevelEditor.Properties.Resources.Screenshot_2022_06_05_000630;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.Green;
-            this.button5.ImageKey = "(none)";
-            this.button5.ImageList = this.Example;
-            this.button5.Location = new System.Drawing.Point(646, 141);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button5.Size = new System.Drawing.Size(183, 163);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "2";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Goldenrod;
-            this.button6.BackgroundImage = global::BBLevelEditor.Properties.Resources.Screenshot_2022_06_05_000630;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.ImageKey = "(none)";
-            this.button6.ImageList = this.Example;
-            this.button6.Location = new System.Drawing.Point(853, 325);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button6.Size = new System.Drawing.Size(183, 163);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "2";
-            this.button6.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
