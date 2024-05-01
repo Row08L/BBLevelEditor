@@ -20,9 +20,6 @@ namespace BBLevelEditor
     {
         Rectangle bounds { get; set; }
         PictureBox texture { get; set; }
-
-        
-
-
+   
     }
 }

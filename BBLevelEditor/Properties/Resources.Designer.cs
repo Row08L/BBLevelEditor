@@ -59,5 +59,15 @@ namespace BBLevelEditor.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2022_06_05_000630 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2022_06_05_000630", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

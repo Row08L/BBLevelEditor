@@ -12,6 +12,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Security.Cryptography;
 
 namespace BBLevelEditor
 {
@@ -26,54 +27,96 @@ namespace BBLevelEditor
         private void buildButton_Click(object sender, EventArgs e)
         {
             level = new XmlDocument();
-            List<Image> encodeImageList = new List<Image>();
             XmlNode root = level.CreateElement("level");
             level.AppendChild(root);
             //if (File.Exists(filePath) == true)
             //{
             //    level.Load(filePath);
             //}
-
+            List<ImageList> brickSelections = new List<ImageList>();
             foreach (Control c in panel1.Controls)
             {
                 if (c is Button)
                 {
-                    if (encodeImageList.Count() != 0)
+                    Button currentButton = (Button)c;
+                    if (brickSelections.Count() != 0)
                     {
                         int index = 0;
-                        foreach (Image i in encodeImageList)
+                        foreach (ImageList i in brickSelections)
                         {
-                            if (i == c.BackgroundImage)
+                            if (i == currentButton.ImageList)
                             {
                                 break;
                             }
                             index++;
                         }
-                        if (index == encodeImageList.Count())
+                        if (index == brickSelections.Count())
                         {
-                            encodeImageList.Add(c.BackgroundImage);
+                            brickSelections.Add(currentButton.ImageList);
                         }
                     }
                     else
                     {
-                        encodeImageList.Add(c.BackgroundImage);
+                        brickSelections.Add(currentButton.ImageList);
                     }
                 }
             }
-            if (encodeImageList.Count > 0)
+            XmlNode allTextures = level.CreateElement("alltextures");
+            root.AppendChild(allTextures);
+            foreach (ImageList i in brickSelections)
             {
-                WriteDecoder(encodeImageList, level, root);
+                List<Image> buttonImageList = new List<Image>();
+                for (int j = 0; j < i.Images.Count; j++)
+                {
+                    buttonImageList.Add(i.Images[j]);
+                }
+                WriteDecoder(buttonImageList, level, allTextures);
             }
+
+           //foreach (Control c in panel1.Controls)
+           //{
+           //    if (c is Button)
+           //    {
+           //        if (encodeImageList.Count() != 0)
+           //        {
+           //            int index = 0;
+           //            foreach (Image i in encodeImageList)
+           //            {
+           //                string hash1 = CalculateImageHash(i);
+           //                string hash2 = CalculateImageHash(c.BackgroundImage);
+           //
+           //                if (hash1 == hash2)
+           //                {
+           //                    break;
+           //                }
+           //                index++;
+           //            }
+           //            if (index == encodeImageList.Count())
+           //            {
+           //                encodeImageList.Add(c.BackgroundImage);
+           //            }
+           //        }
+           //        else
+           //        {
+           //            encodeImageList.Add(c.BackgroundImage);
+           //        }
+           //    }
+           //}
+           //if (encodeImageList.Count > 0)
+           //{
+           //    WriteDecoder(encodeImageList, level, root);
+           //}
             foreach (Control c in panel1.Controls)
             {
                 if (c is Button)
                 {
+                    Button currentButton = (Button)c;
                     bool vines = false;
                     int type = 0;
-                    foreach (Image i in encodeImageList)
+                    foreach (ImageList i in brickSelections)
                     {
 
-                        if (i == c.BackgroundImage)
+                        if (i == currentButton.ImageList)
                         {
                             break;
                         }
@@ -187,6 +230,20 @@ namespace BBLevelEditor
 
             }
         }
+        private string CalculateImageHash(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png); // Save image to memory stream
+                ms.Position = 0; // Reset memory stream position
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] hashBytes = sha256.ComputeHash(ms); // Compute hash for memory stream
+                    return BitConverter.ToString(hashBytes).Replace("-", "").ToLower(); // Convert hash bytes to string
+                }
+            }
+        }
+
     }
 
 }
